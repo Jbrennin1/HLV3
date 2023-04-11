@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body,
 #__next {
@@ -28,6 +27,11 @@ body {
 
 .regText{
   font-size: 2vw;
+  font-weight: bold;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000,
+    1px 1px 0 #666, 1px 1px 0 #555, 2px 2px 0 #444, 2px 2px 0 #333;
 }
 
 .glow:hover {
@@ -51,7 +55,7 @@ body {
   bottom: 0;
   background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2075&q=80');
   background-repeat: repeat;
-  filter: blur(8px);
+  filter: blur(5px);
   z-index: -1;
   animation: background-scroll 60s linear infinite;
 }
@@ -65,5 +69,46 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  /* styles for screens with a min width of 1024px */
+  .flexType {
+    flex-direction: row;
+  }
+  .responsiveWidthHeight {
+    width: 16%;
+    height: 50%;
+  }
+  .leaderBoard {
+    font-size: 1.5vw;
+  }
+  .lbText {
+    font-size: 1vw;
+  }
+  .slideWidth {
+    width: 50%;
+  }
+}
 
+@media (max-width: 1024px) {
+  /* styles for screens between 640px and 1024px */
+  .flexType {
+    flex-direction: column;
+  }
+  .responsiveWidthHeight {
+    width: 50%;
+    height: 25%;
+  }
+  .leaderBoard {
+    font-size: 3rem;
+  }
+  .leaderBoard {
+    font-size: 3vw;
+  }
+  .lbText {
+    font-size: 1vw;
+  }
+  .slideWidth {
+    width: 100%;
+  }
+}
 
