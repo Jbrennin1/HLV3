@@ -45,15 +45,25 @@ function Game({setCurrentSession ,currentSession, objArray, setHouses, gameMode}
         <div className="slideWidth h-full">
           <Carousel
             photos={photoArray1}
+            resStyle={"top-0"}
           />
         </div >
         <div className="absolute flex flex-col items-center justify-center h-full w-[5rem]">
-          <div className="absolute rounded-lg flex flex-col items-center justify-center border h-[3rem] w-[3rem] top-5 bg-white">
-            <p>Score</p><p>0</p>
+          <div className="absolute rounded-lg flex flex-col items-center justify-center border h-[3rem] w-[3rem] top-5 bg-white z-50">
+            <p>
+              Score
+            </p>
+            <p>
+              0
+            </p>
           </div>
           <div className="flex flex-col justify-center items-center border rounded-lg bg-white bg-opacity-75 z-50 h-[10rem] w-[10rem]">
-          <button className="bg-green-400 border rounded-lg h-[3rem] mb-[1rem] w-[8rem] z-50">HIGHER</button>
-          <button className="bg-green-400 border rounded-lg h-[3rem] w-[8rem] z-50">LOWER</button>
+          <button className="bg-green-400 border rounded-lg h-[3rem] mb-[1rem] w-[8rem] z-50">
+            HIGHER
+          </button>
+          <button className="bg-green-400 border rounded-lg h-[3rem] w-[8rem] z-50">
+            LOWER
+          </button>
           </div>
           <div className="absolute rounded-lg flex flex-col items-center justify-center border border-black h-[2rem] w-[2rem] bottom-5 bg-white z-50"
           onClick={() => {setInfo(!info)}}
@@ -67,6 +77,7 @@ function Game({setCurrentSession ,currentSession, objArray, setHouses, gameMode}
         <div className="slideWidth h-full">
           <Carousel
             photos={photoArray2}
+            resStyle={"bottom-0"}
           />
         </div >
       </div>
