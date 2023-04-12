@@ -41,8 +41,8 @@ function Game({setCurrentSession ,currentSession, objArray, setHouses, gameMode}
 
   return (
     <>
-      <div className="flex flexType items-center justify-center w-full h-full border-2">
-        <div className="slideWidth h-full bg-black bg-opacity-25">
+      <div className="flex flexType items-center justify-center w-full h-full border-2 bg-white">
+        <div className="slideWidth h-full">
           <Carousel
             photos={photoArray1}
           />
@@ -51,18 +51,20 @@ function Game({setCurrentSession ,currentSession, objArray, setHouses, gameMode}
           <div className="absolute rounded-lg flex flex-col items-center justify-center border h-[3rem] w-[3rem] top-5 bg-white">
             <p>Score</p><p>0</p>
           </div>
-          <button className="bg-green-400 border rounded-lg h-[3rem] mb-[1rem] w-full">HIGHER</button>
-          <button className="bg-green-400 border rounded-lg h-[3rem] w-full">LOWER</button>
-          <div className="absolute rounded-lg flex flex-col items-center justify-center border border-black h-[2rem] w-[2rem] bottom-5 bg-white"
+          <div className="flex flex-col justify-center items-center border rounded-lg bg-white bg-opacity-75 z-50 h-[10rem] w-[10rem]">
+          <button className="bg-green-400 border rounded-lg h-[3rem] mb-[1rem] w-[8rem] z-50">HIGHER</button>
+          <button className="bg-green-400 border rounded-lg h-[3rem] w-[8rem] z-50">LOWER</button>
+          </div>
+          <div className="absolute rounded-lg flex flex-col items-center justify-center border border-black h-[2rem] w-[2rem] bottom-5 bg-white z-50"
           onClick={() => {setInfo(!info)}}
           >i</div>
           {info ? (<Info resStyle={"bottom-20"}/>) : (<></>)}
           {info ? (<Info resStyle={"top-20"}/>) : (<></>)}
         </div>
-        <button className="absolute rounded-lg top-5 left-5 p-2 bg-red-400"
+        <button className="absolute rounded-lg top-5 left-5 p-2 bg-red-400 z-50"
         onClick={() => {setCurrentSession('home')}}
         >home</button>
-        <div className="slideWidth h-full bg-white bg-opacity-25">
+        <div className="slideWidth h-full">
           <Carousel
             photos={photoArray2}
           />
