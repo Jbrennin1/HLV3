@@ -23,6 +23,7 @@ export default function Home() {
       try {
         const response = await axios.get('http://localhost:3000/houses')
         setHouses(response.data);
+        console.log(houses[0])
       } catch (err) {
         console.error(err);
       }

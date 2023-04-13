@@ -15,8 +15,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function Carousel({currentSession, photos, resStyle}) {
-  console.log(resStyle)
+function Carousel({currentSession, photos, resStyle, resStyleLeft, resStyleRight}) {
   const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
@@ -31,22 +30,25 @@ function Carousel({currentSession, photos, resStyle}) {
 
   return (
     <div className="h-full w-full">
-      <Swiper ref={sliderRef} className="">
+      <Swiper ref={sliderRef} className="flex items-center justify-center">
         {photos.map((photo, index) => {
             return <SwiperSlide key={index}>
-              <div className="absolute flex items-center justify-center h-full">
+              <div className="flex items-center justify-center h-full border">
               <img src={photo} className="h-full border"/>
               </div>
             </SwiperSlide>
           })}
         <SwiperSlide />
       </Swiper>
-      <div>
-      <button className={`absolute ${resStyle} left-5 h-[100px] w-[100px] bg-black z-50`} onClick={handlePrev} ></button>
+      <div className={`absolute ${resStyle} flex items-center justify-center carouselButtonDiv h-[screen] z-5`} style={{ gap: '15rem' }}>
+      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black bg-red-400 rounded`} onClick={handlePrev} >
+      ⪡
+      </button>
+      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black rounded bg-red-400`} onClick={handleNext} >
+      ⪢
+      </button>
       </div>
-      <div>
-      <button className={`absolute ${resStyle} right-5 h-[100px] w-[100px] bg-black z-50`} onClick={handleNext} ></button>
-      </div>
+
     </div>
   )
 }

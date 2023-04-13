@@ -69,7 +69,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 580px) {
   /* styles for screens with a min width of 1024px */
   .flexType {
     flex-direction: row;
@@ -87,9 +87,13 @@ body {
   .slideWidth {
     width: 50%;
   }
+  .carouselButtonDiv {
+    width: 50%;
+    bottom: 5%;
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 580px) {
   /* styles for screens between 640px and 1024px */
   .flexType {
     flex-direction: column;
@@ -108,6 +112,9 @@ body {
     font-size: 1vw;
   }
   .slideWidth {
+    width: 100%;
+  }
+  .carouselButtonDiv {
     width: 100%;
   }
 }
