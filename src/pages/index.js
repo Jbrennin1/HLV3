@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image'
+import Image from "next/image"
 import Head from 'next/head'
 import HomeMenu from './components/index/homeMenu'
 import Game from './components/index/game'
@@ -17,18 +17,48 @@ export default function Home() {
 
   const [currentSession, setCurrentSession] = useState('home')
 
+  const [name, setName] = useState(null)
+
+  const [highScore, setHighScore] = useState(0)
+
+  const [leaderBoard, setLeaderBoard] = useState([])
+
   useEffect(() => {
     console.log('loading houses')
     const getHouses = async ()  => {
       try {
-        const response = await axios.get('http://localhost:3000/houses')
+        const response = await axios.get('/houses')
         setHouses(response.data);
-        console.log(houses[0])
       } catch (err) {
         console.error(err);
       }
     }
     getHouses();
+  }, [])
+
+  useEffect(() => {
+    console.log('loading houses')
+    const getName = async ()  => {
+      try {
+        const response = await axios.get('/get-name')
+        setName(response.data.name);
+        if(response.data.highScore) {
+          setHighScore(response.data.highScore)
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getName();
+  }, [])
+
+  useEffect(() => {
+    console.log('Loading LeaderBoard')
+    const getLeaderBoard = async () => {
+      const response = await axios.get('/leaderBoard')
+      setLeaderBoard(response.data)
+    }
+    getLeaderBoard();
   }, [])
 
   return (
@@ -46,6 +76,9 @@ export default function Home() {
             playStyle={playStyle}
             setPlayStyle={setPlayStyle}
             setCurrentSession={setCurrentSession}
+            name={name}
+            highScore={highScore}
+            leaderBoard={leaderBoard}
           />
           ):(
           <Game
@@ -55,6 +88,9 @@ export default function Home() {
             setHouses={setHouses}
             playStyle={playStyle}
             gameMode={gameMode}
+            highScore={highScore}
+            setHighScore={setHighScore}
+            name={name}
           />)}
       </div>
     </>

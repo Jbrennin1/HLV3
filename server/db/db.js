@@ -4,7 +4,7 @@ async function connectToDb() {
   const url = "mongodb://localhost:27017/hl";
   const client = new MongoClient(url);
   await client.connect();
-  console.log('Connected to MongoDB');
+  console.log('connected to mongodb')
   return client.db('hl');
 }
 

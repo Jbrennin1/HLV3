@@ -34,13 +34,14 @@ body {
     1px 1px 0 #666, 1px 1px 0 #555, 2px 2px 0 #444, 2px 2px 0 #333;
 }
 
-.glow:hover {
-
+.gameButton {
+  font-weight: bold;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000,
+    1px 1px 0 #666, 1px 1px 0 #555, 2px 2px 0 #444, 2px 2px 0 #333;
 }
 
-.glow {
-
-}
 
 .bg {
   position: relative;
@@ -73,6 +74,7 @@ body {
   /* styles for screens with a min width of 1024px */
   .flexType {
     flex-direction: row;
+    align-items: center;
   }
   .responsiveWidthHeight {
     width: 16%;
@@ -88,8 +90,32 @@ body {
     width: 50%;
   }
   .carouselButtonDiv {
-    width: 50%;
-    bottom: 5%;
+    width: 40%;
+    bottom: 1.5rem;
+    margin-left: 5%;
+  }
+  .resCenter {
+    justify-content: center;
+  }
+  .resInfo {
+    width: 40vw;
+  }
+  .priceBox{
+    bottom: 0;
+    gap: 13%;
+  }
+  .imageDiv{
+    max-height: 100%;
+  }
+  .login {
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+  .name {
+    font-size: 1.3vh
+  }
+  .score {
+   font-size: 1.3vh;
   }
 }
 
@@ -103,10 +129,7 @@ body {
     height: 25%;
   }
   .leaderBoard {
-    font-size: 3rem;
-  }
-  .leaderBoard {
-    font-size: 3vw;
+    font-size: 1vh;
   }
   .lbText {
     font-size: 1vw;
@@ -115,12 +138,47 @@ body {
     width: 100%;
   }
   .carouselButtonDiv {
-    width: 100%;
+    width: 96%;
+    margin-left: 2%;
+  }
+  .priceDivLeft {
+    bottom: 46%;
+    left: 2%
+  }
+  .priceDivRight {
+    bottom: 46%;
+    right: 2%;
+  }
+  .resCenter {
+    align-items: center;
+    justify-content: center;
+  }
+  .resInfo {
+    width: 80vw;
+  }
+  .priceBox{
+    gap: 37%;
+  }
+  .imageDiv {
+    max-height: 40%;
+  }
+  .login {
+    font-size: 1vh;
+    margin-bottom: 5px;
+  }
+  .name {
+    font-size: 1vh
+  }
+  .score {
+   font-size: 1vh;
   }
 }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-  background-color: rgb(34, 33, 70);
+.swiper-slide {
+  overflow: hidden;
 }
+
+.shadow {
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffffff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+}
+

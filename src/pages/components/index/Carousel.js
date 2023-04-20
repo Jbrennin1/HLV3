@@ -15,7 +15,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function Carousel({currentSession, photos, resStyle, resStyleLeft, resStyleRight}) {
+function Carousel({currentSession, photos, resStyle, resStyleLeft, resStyleRight, resImageBorder}) {
   const sliderRef = useRef(null);
 
   const handlePrev = useCallback(() => {
@@ -28,29 +28,43 @@ function Carousel({currentSession, photos, resStyle, resStyleLeft, resStyleRight
     sliderRef.current.swiper.slideNext();
   }, []);
 
+
+
   return (
-    <div className="h-full w-full">
-      <Swiper ref={sliderRef} className="flex items-center justify-center">
-        {photos.map((photo, index) => {
-            return <SwiperSlide key={index}>
-              <div className="flex items-center justify-center h-full border">
-              <img src={photo} className="h-full border"/>
-              </div>
-            </SwiperSlide>
-          })}
+    <div className="h-full flex flex-col justify-center">
+      <div className="overflow-hidden">
+
+      <Swiper ref={sliderRef}>
+        {photos ? (
+        photos.map((photo, index) => (
+        <SwiperSlide key={index} className="overflow-hidden">
+          <Image
+            src={photo}
+            className=""
+            alt="My Image"
+            object-fit="cover"
+            layout="responsive"
+            width={100}
+            height={75}
+          />
+        </SwiperSlide>
+  ))
+) : (
+  <p>No photos found.</p>
+)}
         <SwiperSlide />
       </Swiper>
-      <div className={`absolute ${resStyle} flex items-center justify-center carouselButtonDiv h-[screen] z-5`} style={{ gap: '15rem' }}>
-      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black bg-red-400 rounded`} onClick={handlePrev} >
+      </div>
+      <div className={`absolute ${resStyle} flex items-center justify-between carouselButtonDiv h-[screen] z-5 z-50`}>
+      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black bg-gradient-to-b from-red-400 to-red-600 rounded`} onClick={handlePrev} >
       ⪡
       </button>
-      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black rounded bg-red-400`} onClick={handleNext} >
+      <button className={`text-[1rem] w-[2rem] z-40 border-2 border-black rounded bg-gradient-to-b from-red-400 to-red-600`} onClick={handleNext} >
       ⪢
       </button>
       </div>
-
     </div>
-  )
+  );
 }
 
 export default Carousel

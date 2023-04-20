@@ -1,7 +1,11 @@
 import React from 'react'
 import LeaderBoard from './leaderboard'
 import Chat from './chat'
-function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSession}) {
+import Link from 'next/link'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+
+function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSession, name, highScore, leaderBoard}) {
   const btnOn = "regText flex justify-center w-1/2 text-white font-bold py-2 px-4 rounded-md shadow-md shadow-lg shadow-black border border-white bg-black bg-opacity-50"
   const btnOff = "regText flex justify-center w-1/2 text-white font-bold py-2 px-4 rounded-md shadow-md shadow-md shadow-black border border-white bg-black bg-opacity-10"
 
@@ -17,12 +21,21 @@ function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSes
     }
   }
 
+  const router = useRouter();
+
+  const logout = async () => {
+    await axios.get('/logout')
+    location.reload()
+  }
+
   return (
     <div className="regText flex flex-col items-center justify-center w-full h-full bg">
       <div className="flex flexType items-center justify-center h-full w-full bg-blue-400 bg-opacity-25">
 
         <div className="responsiveWidthHeight rounded-lg flex flex-col items-center h-1/4 bg-black bg-opacity-25">
-          <LeaderBoard/>
+          <LeaderBoard
+            leaderBoard={leaderBoard}
+          />
         </div>
 
         <div className="flex flex-col items-center justify-center h-1/2 w-4/6">
@@ -66,7 +79,7 @@ function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSes
           {/*SCORE SECTION*/}
           <div className="flex flex-col items-center justify-center w-1/3 h-full">
             <p>HighScore</p>
-            <button className="regText flex items-center px-2  rounded mb-[1rem] mt-[.3rem] h-[2.5vw]">14</button>
+            <button className="regText flex items-center px-2  rounded mb-[1rem] mt-[.3rem] h-[2.5vw]">{highScore}</button>
             <p>LastScore</p>
             <button className="regText flex items-center px-2 h-[2.5vw] rounded mt-[.3rem]">3</button>
           </div>
@@ -115,6 +128,24 @@ function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSes
           <Chat />
         </div>
       </div>
+        {name===null ? (
+          <div className="absolute flex flexType right-[5px] top-[5px]">
+          <Link href="/login" className="flex items-center justify-center">
+          <button className="p-1 login border rounded-md bg-gradient-to-b from-red-500 to-red-400 shadow-md shadow-black">LOGIN</button>
+          </Link>
+          <Link href="/register" className="flex items-center justify-center">
+          <button className="p-1 login border rounded-md bg-gradient-to-b from-red-500 to-red-400 shadow-md shadow-black">REGISTER</button>
+          </Link>
+          </div>
+        ):(
+          <div className="absolute flex flexType items-center right-[5px] top-[5px] border">
+            <button className="p-1 login border rounded-md bg-gradient-to-b from-red-500 to-red-400 shadow-md shadow-black regButton">{name}</button>
+            <button className="p-1 login border rounded-md bg-gradient-to-b from-red-500 to-red-400 shadow-md shadow-black"
+             onClick={logout}
+            >Logout</button>
+          </div>
+        )}
+
     </div>
   )
 }
