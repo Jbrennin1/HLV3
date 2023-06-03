@@ -125,7 +125,7 @@ function HomeMenu({setGameMode, gameMode, playStyle, setPlayStyle, setCurrentSes
         </div>
         </div>
         <div className="responsiveWidthHeight flex flex-col items-center rounded-lg h-1/4 bg-black bg-opacity-25">
-          <Chat />
+          <Chat name={name}/>
         </div>
       </div>
         {name===null ? (

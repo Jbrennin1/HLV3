@@ -94,7 +94,7 @@ function Game({setCurrentSession ,currentSession, objArray, setHouses, gameMode,
 
   return (
     <>
-    {gameOver ? (<GameOver />):(
+    {gameOver ? (<GameOver setGameOver={setGameOver} setScore={setScore} score={score}/>):(
     <div className="flex flexType resCenter w-full h-full bg-gradient-to-b from-blue-500 via-white to-blue-500 bg-opacity-70">
     <div className="slideWidth h-full imageDiv overflow-hidden">
       <Carousel

@@ -15,7 +15,8 @@ export default function Register() {
         <link />
       </Head>
       <div className="flex items-center justify-evenly h-full w-full border border-black bg">
-        <div className="flex flex-col items-center justify-center h-[100%] w-[100%] rounded">
+        <div className="flex flex-col items-center justify-center h-[100%] w-[100%] rounded"
+             style={{ display: 'flex', flexDirection: 'column', maxWidth: '600px', maxHeight: '80vh' }}>
         <Formik
           initialValues={{ name: "", password: "" }}
           validate={(values) => {
@@ -48,8 +49,8 @@ export default function Register() {
           }}
         >
         {({ isSubmitting }) => (
-        <Form className="flex flex-col justify-center items-center border border-black bg-white h-[50%] w-[60%] rounded-lg">
-          <div className="flex flex-col items-center justify-center mb-[10%] w-full">
+        <Form className="flex flex-col justify-center items-center border border-black bg-white h-[70%] w-[60%] rounded-lg">
+          <div className="flex flex-col items-center justify-center mb-[10%] h-[10%] w-full">
             <label htmlFor="name">Name</label>
             <div className="flex flex-col justify-center items-center pl-[1rem] pr-[1rem] w-full">
               <Field className="rounded border-2 border-black mr-[3px] w-full" type="text" name="name" />
